@@ -1,6 +1,7 @@
 #include "Dog.hpp"
 
 Dog::Dog() : Animal() {
+	std::cout << "Dog constructor called" << std::endl;
 	this -> type = "Dog";
 }
 
@@ -12,15 +13,15 @@ Dog::Dog(const Dog& rhs) {
 }
 
 Dog::~Dog() {
-	std::cout << "Cat destructors called" << std::endl;
+	std::cout << "Dog destructors called" << std::endl;
 }
 
 Dog& Dog::operator=(const Dog& rhs) {
-	std::cout << "Cat copy assignment called" << std::endl;
+	std::cout << "Dog copy assignment called" << std::endl;
 	Animal::operator=(rhs);
 	return (*this);
 }
 
-void Dog::makeSound() {
+void Dog::makeSound() const{
 	std::cout << "Dog : " << "bowwow " << std::endl;
 }
