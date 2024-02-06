@@ -6,15 +6,15 @@ Cat::Cat() : Animal(){
 }
 
 Cat::Cat(const Cat& rhs) {
-	if (this != &rhs) {
-		std::cout << "Cat Copy constructor called" << std::endl;
-		*this = rhs;
-	}
+	std::cout << "Cat Copy constructor called" << std::endl;
+	*this = rhs;
 }
 
 Cat& Cat::operator=(const Cat& rhs) {
 	std::cout << "Cat copy assignment called" << std::endl;
-	Animal::operator=(rhs);
+	if (this != &rhs) {
+		Animal::operator=(rhs);
+	}
 	return (*this);
 }
 

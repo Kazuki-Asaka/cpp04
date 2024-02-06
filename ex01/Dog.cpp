@@ -7,22 +7,21 @@ Dog::Dog() : Animal() {
 }
 
 Dog::Dog(const Dog& rhs) {
-	if (this != &rhs) {
-		std::cout << "Dog Copy constructor called" << std::endl;
-		this -> dog_brain = NULL;
-		*this = rhs;
-	}
+	std::cout << "Dog Copy constructor called" << std::endl;
+	this -> dog_brain = NULL;
+	*this = rhs;
 }
 
 Dog& Dog::operator=(const Dog& rhs) {
 	std::cout << "Dog copy assignment called" << std::endl;
-	Animal::operator=(rhs);
+	if (this != &rhs) {
+		Animal::operator=(rhs);
 
-	Brain *tmp_brain = new Brain();
-	*tmp_brain = *(rhs.dog_brain);
-	delete (this -> dog_brain);
-	dog_brain = tmp_brain;
-
+		Brain *tmp_brain = new Brain();
+		*tmp_brain = *(rhs.dog_brain);
+		delete (this -> dog_brain);
+		dog_brain = tmp_brain;
+	}
 	return (*this);
 }
 
