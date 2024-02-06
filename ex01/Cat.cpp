@@ -8,6 +8,7 @@ Cat::Cat() : Animal(){
 
 Cat::Cat(const Cat& rhs) {
 	if (this != &rhs) {
+		this -> cat_brain = NULL;
 		std::cout << "Cat Copy constructor called" << std::endl;
 		*this = rhs;
 	}

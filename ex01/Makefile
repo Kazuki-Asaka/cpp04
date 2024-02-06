@@ -11,7 +11,7 @@ OBJS	=	$(SRCS:.cpp=.o)
 CXX		= c++
 
 CXXFLAGS	= -std=c++98
-CXXFLAGS 	+= -Wall -Wextra -Werror
+CXXFLAGS 	+= -Wall -Wextra -Werror -fsanitize=address -g
 
 NAME	= ex01
 
