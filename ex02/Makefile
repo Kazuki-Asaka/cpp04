@@ -1,4 +1,4 @@
-SRCS	=	Animal.cpp\
+SRCS	=	AAnimal.cpp\
 			Cat.cpp\
 			Dog.cpp\
 			main.cpp\
@@ -13,7 +13,7 @@ CXX		= c++
 CXXFLAGS	= -std=c++98
 CXXFLAGS 	+= -Wall -Wextra -Werror
 
-NAME	= ex01
+NAME	= ex02
 
 all:	$(NAME)
 

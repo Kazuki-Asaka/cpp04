@@ -2,6 +2,12 @@
 #include "Dog.hpp"
 #include "WrongCat.hpp"
 
+
+// __attribute__((destructor))
+// static void destrucor() {
+// 	system("leaks -q ex00");
+// }
+
 int	main(void) {
 	{
 		std::cout << "------------AnimalTest------------" << std::endl;

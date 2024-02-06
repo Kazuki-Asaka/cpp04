@@ -5,34 +5,34 @@
 
 // __attribute__((destructor))
 // static void destrucor() {
-// 	system("leaks -q ex01");
+// 	system("leaks -q ex02");
 // }
 
 int	main(void) {
-	{
-		std::cout << "------------AnimalTest------------" << std::endl;
-		Animal	animal;
-		const Animal *meta = new Animal();
-		const Animal *meta1 = new Animal(*meta);
+	// {
+	// 	std::cout << "------------AnimalTest------------" << std::endl;
+	// 	AAnimal	animal;
+	// 	const AAnimal *meta = new AAnimal();
+	// 	const AAnimal *meta1 = new AAnimal(*meta);
 
-		std::cout << "aniamal : type is " <<animal.getType() << std::endl;
-		std::cout << "meta : type is " << meta->getType() << std::endl;
-		std::cout << "meta1 : type is " << meta1->getType() << std::endl;
-		std::cout << "aniamal address : " << &animal << std::endl;
-		std::cout << "meta address : " << meta << std::endl;
-		std::cout << "meta1 address : " << meta1 << std::endl;
-		animal.makeSound();
-		meta->makeSound();
-		meta1->makeSound();
-		delete meta;
-		delete meta1;
-	}
+	// 	std::cout << "aniamal : type is " <<animal.getType() << std::endl;
+	// 	std::cout << "meta : type is " << meta->getType() << std::endl;
+	// 	std::cout << "meta1 : type is " << meta1->getType() << std::endl;
+	// 	std::cout << "aniamal address : " << &animal << std::endl;
+	// 	std::cout << "meta address : " << meta << std::endl;
+	// 	std::cout << "meta1 address : " << meta1 << std::endl;
+	// 	animal.makeSound();
+	// 	meta->makeSound();
+	// 	meta1->makeSound();
+	// 	delete meta;
+	// 	delete meta1;
+	// }
 	{
 		std::cout << "------------CatTest------------" << std::endl;
 		Cat		cat;
-		const Animal *cat1 = new Cat();
+		const AAnimal *cat1 = new Cat();
 		// const Animal *cat2 = new Cat(static_cast<const Cat&>(*cat1));
-		const Animal *cat2 = new Cat(cat);
+		const AAnimal *cat2 = new Cat(cat);
 		
 		std::cout << "cat : type is " << cat.getType() << std::endl;
 		std::cout << "cat1 : type is " << cat1->getType() << std::endl;
@@ -46,8 +46,8 @@ int	main(void) {
 	{
 		std::cout << "------------DogTest------------" << std::endl;
 		Dog	dog;
-		const Animal *dog1 = new Dog();
-		const Animal *dog2 = new Dog(dog);
+		const AAnimal *dog1 = new Dog();
+		const AAnimal *dog2 = new Dog(dog);
 
 		std::cout << "dog type is " << dog.getType() << std::endl;
 		std::cout << "dog1 type is " << dog1->getType() << std::endl;
