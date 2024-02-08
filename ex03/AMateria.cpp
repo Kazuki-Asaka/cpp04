@@ -18,9 +18,14 @@ AMateria::~AMateria() {
 
 AMateria& AMateria::operator=(const AMateria& rhs) {
     this -> type = rhs.type;
+    return (*this);
 }
 
 std::string const & AMateria::getType() const {
     return (this -> type);
 }
 
+void AMateria::use(ICharacter& target) {
+    // std::cout << target.getName() << std::endl;
+    static_cast<void>(target);
+}

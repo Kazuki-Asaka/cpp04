@@ -3,11 +3,17 @@
 Character::Character() {
 	std::cout << "Characteer constructor called" << std::endl;
 	this -> name = "No name";
+	for (int i = 0; i < 4; i++) {
+		slot[i] = NULL;
+	}
 }
 
 Character::Character(std::string name) {
 	std::cout << "Characteer name constructor called" << std::endl;
 	this -> name = name;
+	for (int i = 0; i < 4; i++) {
+		slot[i] = NULL;
+	}
 }
 
 Character::Character(const Character& rhs) {
@@ -23,14 +29,14 @@ Character& Character::operator=(const Character& rhs) {
 	this -> name = rhs.name;
 	for (int i = 0; i < 4; i++) {
 		AMateria *tmp;
-		if (slot[i]->getType() == "ice")
+		if (rhs.slot[i]->getType() == "ice")
 			tmp = new Ice();
-		else if (slot[i]->getType() == "cure") 
+		else if (rhs.slot[i]->getType() == "cure") 
 			tmp = new Cure();
 		else
-			AMateria *tmp = NULL;
-		*tmp = *(this->slot[i]);
-		delete(this -> slot[i]);
+			tmp = NULL;
+		*tmp = *(rhs.slot[i]);
+		// delete(this -> slot[i]);
 		this -> slot[i] = tmp;
 	} 
 	return (*this);
@@ -75,7 +81,7 @@ void Character::use(int idx, ICharacter& target) {
 
 Character::~Character() {
 	std::cout << "Character destrocter called" << std::endl;
-	for (int i = 0; i < 4 ; i++) {
-		delete (this -> slot[i]);
-	}
+	// for (int i = 0; i < 4 ; i++) {
+	// 	delete (this -> slot[i]);
+	// }
 }

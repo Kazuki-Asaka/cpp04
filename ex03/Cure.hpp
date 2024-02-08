@@ -14,4 +14,4 @@ public:
     virtual void use(ICharacter& target);
 };
 
-#endif;
+#endif

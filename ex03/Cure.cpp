@@ -2,7 +2,7 @@
 
 Cure::Cure() : AMateria(){
     std::cout << "Cure constructors called " << std::endl;
-    this -> type = "ice";
+    this -> type = "cure";
 }
 
 Cure::Cure(const Cure& rhs) {
