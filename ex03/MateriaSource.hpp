@@ -11,6 +11,8 @@ public:
     virtual ~MateriaSource();
 	virtual void learnIMateria(AMateria*) const;
 	virtual AMateria* createMateria(std::string const & type);
+private:
+    AMateria *slot[4];
 };
 
 #endif
