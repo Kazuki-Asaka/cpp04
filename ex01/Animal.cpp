@@ -26,6 +26,6 @@ std::string Animal::getType() const{
 	return (this -> type);
 }
 
-// void Animal::makeSound() const{
-// 	std::cout << "I am Animal" << std::endl;
-// }
+void Animal::makeSound() const{
+	std::cout << "I am Animal" << std::endl;
+}

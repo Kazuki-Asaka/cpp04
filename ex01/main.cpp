@@ -9,55 +9,73 @@
 // }
 
 int	main(void) {
-	{
-		std::cout << "------------AnimalTest------------" << std::endl;
-		Animal	animal;
-		const Animal *meta = new Animal();
-		const Animal *meta1 = new Animal(*meta);
+	// {
+	// 	std::cout << "------------AnimalTest------------" << std::endl;
+	// 	Animal	animal;
+	// 	const Animal *meta = new Animal();
+	// 	const Animal *meta1 = new Animal(*meta);
 
-		std::cout << "aniamal : type is " <<animal.getType() << std::endl;
-		std::cout << "meta : type is " << meta->getType() << std::endl;
-		std::cout << "meta1 : type is " << meta1->getType() << std::endl;
-		std::cout << "aniamal address : " << &animal << std::endl;
-		std::cout << "meta address : " << meta << std::endl;
-		std::cout << "meta1 address : " << meta1 << std::endl;
-		animal.makeSound();
-		meta->makeSound();
-		meta1->makeSound();
-		delete meta;
-		delete meta1;
-	}
-	{
-		std::cout << "------------CatTest------------" << std::endl;
-		Cat		cat;
-		const Animal *cat1 = new Cat();
-		// const Animal *cat2 = new Cat(static_cast<const Cat&>(*cat1));
-		const Animal *cat2 = new Cat(cat);
+	// 	std::cout << "aniamal : type is " <<animal.getType() << std::endl;
+	// 	std::cout << "meta : type is " << meta->getType() << std::endl;
+	// 	std::cout << "meta1 : type is " << meta1->getType() << std::endl;
+	// 	std::cout << "aniamal address : " << &animal << std::endl;
+	// 	std::cout << "meta address : " << meta << std::endl;
+	// 	std::cout << "meta1 address : " << meta1 << std::endl;
+	// 	animal.makeSound();
+	// 	meta->makeSound();
+	// 	meta1->makeSound();
+	// 	delete meta;
+	// 	delete meta1;
+	// }
+	// {
+	// 	std::cout << "------------CatTest------------" << std::endl;
+	// 	Cat		cat;
+	// 	const Animal *cat1 = new Cat();
+	// 	// const Animal *cat2 = new Cat(static_cast<const Cat&>(*cat1));
+	// 	const Animal *cat2 = new Cat(cat);
 		
-		std::cout << "cat : type is " << cat.getType() << std::endl;
-		std::cout << "cat1 : type is " << cat1->getType() << std::endl;
-		std::cout << "cat2 : type is " << cat2->getType() << std::endl;
-		cat.makeSound();
-		cat1->makeSound();
-		cat2->makeSound();
-		delete cat1;
-		delete cat2;
-	}
+	// 	std::cout << "cat : type is " << cat.getType() << std::endl;
+	// 	std::cout << "cat1 : type is " << cat1->getType() << std::endl;
+	// 	std::cout << "cat2 : type is " << cat2->getType() << std::endl;
+	// 	cat.makeSound();
+	// 	cat1->makeSound();
+	// 	cat2->makeSound();
+	// 	delete cat1;
+	// 	delete cat2;
+	// }
+	// {
+	// 	std::cout << "------------DogTest------------" << std::endl;
+	// 	Dog	dog;
+	// 	const Animal *dog1 = new Dog();
+	// 	const Animal *dog2 = new Dog(dog);
+
+	// 	std::cout << "dog type is " << dog.getType() << std::endl;
+	// 	std::cout << "dog1 type is " << dog1->getType() << std::endl;
+	// 	std::cout << "dog2 type is " << dog2->getType() << std::endl;
+
+	// 	dog.makeSound();
+	// 	dog1->makeSound();
+	// 	dog2->makeSound();
+	// 	delete dog1;
+	// 	delete dog2;
+	// }
 	{
-		std::cout << "------------DogTest------------" << std::endl;
-		Dog	dog;
-		const Animal *dog1 = new Dog();
-		const Animal *dog2 = new Dog(dog);
+		std::cout << "------------CatDogTest------------" << std::endl;
+		Animal *animalarray[10];
 
-		std::cout << "dog type is " << dog.getType() << std::endl;
-		std::cout << "dog1 type is " << dog1->getType() << std::endl;
-		std::cout << "dog2 type is " << dog2->getType() << std::endl;
-
-		dog.makeSound();
-		dog1->makeSound();
-		dog2->makeSound();
-		delete dog1;
-		delete dog2;
+		for (int i = 0; i < 10; i++) {
+			if (i % 2 == 0)
+				animalarray[i] = new Dog();
+			else
+				animalarray[i] = new Cat();
+		}
+		for (int i = 0; i < 10; i++) {
+			std::cout << animalarray[i]->getType() << std::endl;
+			animalarray[i]->makeSound();
+		}
+		for (int i = 0; i < 10; i++) {
+			delete(animalarray[i]);
+		}
 	}
 	// {
 	// 	std::cout << "------------WrongAnimalTest------------" << std::endl;
