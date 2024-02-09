@@ -15,7 +15,9 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& rhs) {
     std::cout << "MateriaSource copy assignment called" << std::endl;
 	for (int i = 0; i < 4; i++) {
 		AMateria *tmp;
-		if (rhs.slot[i]->getType() == "ice")
+		if (rhs.slot[i] == NULL)
+			tmp = NULL;
+		else if (rhs.slot[i]->getType() == "ice")
 			tmp = new Ice();
 		else if (rhs.slot[i]->getType() == "cure") 
 			tmp = new Cure();
@@ -37,6 +39,7 @@ void MateriaSource::learnMateria(AMateria* m){
 		}
 	}
 	std::cout << "learn slot is full" << std::endl;
+	delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {
@@ -55,4 +58,7 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 
 MateriaSource::~MateriaSource() {
 	std::cout << "MateriaSource destructor called" << std::endl;
+	for (int i = 0; i < 4; i++) {
+		delete (this -> slot[i]);
+	}
 }

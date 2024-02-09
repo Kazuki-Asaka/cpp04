@@ -1,7 +1,7 @@
 #include "Character.hpp"
 
 Character::Character() {
-	std::cout << "Characteer constructor called" << std::endl;
+	// std::cout << "Characteer constructor called" << std::endl;
 	this -> name = "No name";
 	for (int i = 0; i < 4; i++) {
 		slot[i] = NULL;
@@ -9,7 +9,7 @@ Character::Character() {
 }
 
 Character::Character(std::string name) {
-	std::cout << "Characteer name constructor called" << std::endl;
+	// std::cout << "Characteer name constructor called" << std::endl;
 	this -> name = name;
 	for (int i = 0; i < 4; i++) {
 		slot[i] = NULL;
@@ -17,7 +17,7 @@ Character::Character(std::string name) {
 }
 
 Character::Character(const Character& rhs) {
-	std::cout << "Character copy constructor called" << std::endl;
+	// std::cout << "Character copy constructor called" << std::endl;
 	*this = rhs;
 	for (int i = 0; i < 4; i++) {
 		slot[i] = NULL;
@@ -25,11 +25,13 @@ Character::Character(const Character& rhs) {
 }
 
 Character& Character::operator=(const Character& rhs) {
-	std::cout << "Character Copy assignmrnt called" << std::endl;
+	// std::cout << "Character Copy assignmrnt called" << std::endl;
 	this -> name = rhs.name;
 	for (int i = 0; i < 4; i++) {
 		AMateria *tmp;
-		if (rhs.slot[i]->getType() == "ice")
+		if (slot[i] == NULL)
+			tmp = NULL;
+		else if (rhs.slot[i]->getType() == "ice")
 			tmp = new Ice();
 		else if (rhs.slot[i]->getType() == "cure") 
 			tmp = new Cure();
@@ -70,6 +72,10 @@ void Character::unequip(int idx) {
 }
 
 void Character::use(int idx, ICharacter& target) {
+	if (slot[idx] == NULL) {
+		std::cout << "cannot use"<< std::endl;
+		return ;
+	}
 	if (0 <= idx && idx <= 3) {
 		// std::cout << "unequip " << slot[idx] -> getType() << " " << std::endl;
 		slot[idx]->use(target);
