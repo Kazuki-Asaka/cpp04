@@ -60,6 +60,24 @@ int	main(void) {
 		delete dog2;
 	}
 	// {
+	// 	std::cout << "------------CatDogTest------------" << std::endl;
+	// 	Animal *animalarray[10];
+
+	// 	for (int i = 0; i < 10; i++) {
+	// 		if (i % 2 == 0)
+	// 			animalarray[i] = new Dog();
+	// 		else
+	// 			animalarray[i] = new Cat();
+	// 	}
+	// 	for (int i = 0; i < 10; i++) {
+	// 		std::cout << animalarray[i]->getType() << std::endl;
+	// 		animalarray[i]->makeSound();
+	// 	}
+	// 	for (int i = 0; i < 10; i++) {
+	// 		delete(animalarray[i]);
+	// 	}
+	// }
+	// {
 	// 	std::cout << "------------WrongAnimalTest------------" << std::endl;
 	// 	WrongAnimal wrongAnimal;
 	// 	const WrongAnimal *meta = new WrongAnimal();

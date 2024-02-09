@@ -3,10 +3,10 @@
 #include "Ice.hpp"
 #include "Character.hpp"
 
-__attribute__((destructor))
-static void destrucor() {
-	system("leaks -q ex03");
-}
+// __attribute__((destructor))
+// static void destrucor() {
+// 	system("leaks -q ex03");
+// }
 
 int main()
 {
